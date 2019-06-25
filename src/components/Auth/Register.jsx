@@ -3,7 +3,8 @@ import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
-import { Button, Input } from "../../styles/Styles";
+import { errorOption, successOption } from "../../utils/utils";
+import { Button, Input, Form } from "../../styles/Styles";
 import { registerUser } from "../../actions/auth";
 
 function Register(props) {
@@ -30,21 +31,21 @@ function Register(props) {
   }
 
   if (isRegistered) {
-    toast.success("Registration Succesfull, Kindly Login");
+    toast.success("Registration Succesfull, Kindly Login", successOption());
     props.history.push("/login");
   }
 
   if (error) {
-    toast.error(error);
+    toast.error(error, errorOption());
   }
 
   return (
     <div className="mt-5">
-      <form
+      <Form
         className="text-center border border-light p-5 w-50 text-center m-auto"
         onSubmit={handleRegister}
       >
-        <p className="h4 mb-4">Regiser</p>
+        <p className="h4 mb-4">Register</p>
         <Input
           type="text"
           ref={username}
@@ -95,7 +96,7 @@ function Register(props) {
         <a href="##" className="purple-text mx-2">
           <i className="fab fa-github" />
         </a>
-      </form>
+      </Form>
     </div>
   );
 }

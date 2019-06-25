@@ -3,8 +3,9 @@ import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
 
+import { errorOption } from "../../utils/utils";
 import { loginUser } from "../../actions/auth";
-import { Button, Input } from "../../styles/Styles";
+import { Button, Input, Form } from "../../styles/Styles";
 
 function Login(props) {
   const username = React.createRef();
@@ -28,12 +29,12 @@ function Login(props) {
   }
 
   if (error) {
-    toast.error(error);
+    toast.error(error, errorOption());
   }
 
   return (
     <div className="mt-5">
-      <form
+      <Form
         className="text-center border border-light p-5 w-50 text-center m-auto"
         onSubmit={handleLogin}
       >
@@ -80,7 +81,7 @@ function Login(props) {
         <a href="##" className="purple-text mx-2">
           <i className="fab fa-github" />
         </a>
-      </form>
+      </Form>
     </div>
   );
 }

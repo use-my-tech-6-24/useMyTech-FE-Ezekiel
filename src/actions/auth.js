@@ -3,7 +3,7 @@ import { toast } from "react-toastify";
 import { REGISTER_USER, SET_CURRENT_USER, SIGN_OUT_USER } from "./types";
 
 import { setError, resetError } from "./error";
-import { decodeToken } from "../utils/utils";
+import { decodeToken, successOption } from "../utils/utils";
 
 export const registerUser = payload => dispatch => {
   axios
@@ -43,7 +43,7 @@ export const setCurrentUser = payload => {
 
 export const signOut = () => {
   localStorage.removeItem("token");
-  toast.success("Signed Out Successfully");
+  toast.success("Signed Out Successfully", successOption());
 
   return {
     type: SIGN_OUT_USER

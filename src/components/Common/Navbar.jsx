@@ -1,6 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
-// import {Link} from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import { signOut } from "../../actions/auth";
 
@@ -9,7 +9,7 @@ function Navbar(props) {
   let navbar = null;
   if (isSignedIn === true) {
     navbar = (
-      <nav className="mb-1 navbar navbar-expand-lg navbar-dark orange lighten-1 mb-3">
+      <nav className="mb-1 navbar navbar-expand-lg navbar-dark  lighten-1 mb-3">
         <a className="navbar-brand purple-text" href="#3">
           UTMS
         </a>
@@ -37,7 +37,7 @@ function Navbar(props) {
             </li>
             <li className="nav-item">
               <a className="nav-link purple-text text-center" href="#2">
-                Features
+                My Tech
               </a>
             </li>
           </ul>
@@ -62,18 +62,18 @@ function Navbar(props) {
                 className="dropdown-menu dropdown-menu-right dropdown-info"
                 aria-labelledby="navbarDropdownMenuLink-4"
               >
-                <a className="dropdown-item" href="#4">
-                  My account
-                </a>
-                <a
+                <Link className="dropdown-item" to="/profile">
+                  My Profile
+                </Link>
+                <Link
                   className="dropdown-item"
-                  // href="#4"
+                  to=""
                   onClick={() => {
                     props.signOut();
                   }}
                 >
                   Log out
-                </a>
+                </Link>
               </div>
             </li>
           </ul>

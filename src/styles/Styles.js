@@ -22,4 +22,10 @@ const Input = styled.input`
   }
 `;
 
-export { Button, Input };
+const Form = styled.form`
+  p {
+    font-family: "Ubuntu", sans-serif;
+  }
+`;
+
+export { Button, Input, Form };
