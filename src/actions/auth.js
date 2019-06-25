@@ -1,6 +1,8 @@
 import axios from "axios";
+import { toast } from "react-toastify";
 import { REGISTER_USER, SET_CURRENT_USER, SIGN_OUT_USER } from "./types";
 
+import { setError, resetError } from "./error";
 import { decodeToken } from "../utils/utils";
 
 export const registerUser = payload => dispatch => {
@@ -9,8 +11,14 @@ export const registerUser = payload => dispatch => {
       "https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/auth/register",
       payload
     )
-    .then(res => dispatch({ type: REGISTER_USER }))
-    .catch(err => console.log(err));
+    .then(() => {
+      dispatch(resetError());
+      dispatch({ type: REGISTER_USER });
+    })
+    .catch(() => {
+      dispatch(setError("Kindly provide valid details for registration"));
+      dispatch(resetError());
+    });
 };
 
 export const loginUser = payload => dispatch => {
@@ -20,14 +28,16 @@ export const loginUser = payload => dispatch => {
       payload
     )
     .then(res => {
-    //   console.log(res.data);
       localStorage.setItem("token", res.data.token);
       const decodedToken = decodeToken(res.data.token);
 
-      //   console.log(decodeToken(res.data.token))
-        dispatch({ type: SET_CURRENT_USER, payload: decodedToken });
+      dispatch(resetError());
+      dispatch({ type: SET_CURRENT_USER, payload: decodedToken });
     })
-    .catch(err => console.log(err));
+    .catch(() => {
+      dispatch(setError("Invalid Login Credentials"));
+      dispatch(resetError());
+    });
 };
 
 export const setCurrentUser = payload => {
@@ -37,12 +47,11 @@ export const setCurrentUser = payload => {
   };
 };
 
-
 export const signOut = () => {
-    localStorage.removeItem('token');
+  localStorage.removeItem("token");
+  toast.success("Signed Out Successfully");
 
-    return {
-        type: SIGN_OUT_USER
-    }
-
-}
+  return {
+    type: SIGN_OUT_USER
+  };
+};

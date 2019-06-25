@@ -1,5 +1,8 @@
 import React from "react";
 import { connect } from "react-redux";
+// import {Link} from 'react-router-dom'
+
+import { signOut } from "../../actions/auth";
 
 function Navbar(props) {
   const { isSignedIn } = props.auth;
@@ -62,7 +65,13 @@ function Navbar(props) {
                 <a className="dropdown-item" href="#4">
                   My account
                 </a>
-                <a className="dropdown-item" href="#4">
+                <a
+                  className="dropdown-item"
+                  href="#4"
+                  onClick={() => {
+                    props.signOut();
+                  }}
+                >
                   Log out
                 </a>
               </div>
@@ -79,4 +88,7 @@ function Navbar(props) {
 const mapStateToProps = state => ({
   auth: state.auth
 });
-export default connect(mapStateToProps)(Navbar);
+export default connect(
+  mapStateToProps,
+  { signOut }
+)(Navbar);

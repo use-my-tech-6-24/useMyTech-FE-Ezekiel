@@ -15,11 +15,8 @@ import { setCurrentUser, signOut } from "./actions/auth";
 import "react-toastify/dist/ReactToastify.min.css";
 import "./App.css";
 
-
 if (localStorage.token) {
   const { token } = localStorage;
-  // Set Auth TOken
-  // setAuthToken(token);
 
   // Decode token
   const decodedToken = decodeToken(token);
@@ -29,6 +26,7 @@ if (localStorage.token) {
 
   // Check expired token
   const currentTime = Date.now() / 1000;
+
   if (decodedToken.exp < currentTime) {
     // Logout user
     store.dispatch(signOut());
