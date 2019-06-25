@@ -4,9 +4,7 @@ import { GET_TECH_ITEMS } from "./types";
 
 export const getTechItems = () => dispatch => {
   axios
-    .get(
-      "https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/items"
-    )
+    .get("https://usemytechstuffbe.herokuapp.com/api/items")
     .then(res => {
       console.log(res.data);
       dispatch({ type: GET_TECH_ITEMS, payload: res.data });
