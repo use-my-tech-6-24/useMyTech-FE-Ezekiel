@@ -1,4 +1,4 @@
-import {} from "../actions/types";
+import {GET_TECH_ITEMS} from "../actions/types";
 
 const INITIAL_STATE = {
   techItems: []
@@ -6,9 +6,10 @@ const INITIAL_STATE = {
 
 export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case "SET_PRODUCTS":
+    case GET_TECH_ITEMS:
       return {
-        ...state
+        ...state,
+        techItems: action.payload
       };
 
     default:

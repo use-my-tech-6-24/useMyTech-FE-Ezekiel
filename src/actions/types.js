@@ -1,0 +1,1 @@
+export const GET_TECH_ITEMS = 'GET_TECH_ITEMS';
