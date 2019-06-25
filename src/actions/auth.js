@@ -7,10 +7,7 @@ import { decodeToken } from "../utils/utils";
 
 export const registerUser = payload => dispatch => {
   axios
-    .post(
-      "https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/auth/register",
-      payload
-    )
+    .post("https://usemytechstuffbe.herokuapp.com/api/auth/register", payload)
     .then(() => {
       dispatch(resetError());
       dispatch({ type: REGISTER_USER });
@@ -23,10 +20,7 @@ export const registerUser = payload => dispatch => {
 
 export const loginUser = payload => dispatch => {
   axios
-    .post(
-      "https://cors-anywhere.herokuapp.com/https://usemytechstuffbe.herokuapp.com/api/auth/login",
-      payload
-    )
+    .post("https://usemytechstuffbe.herokuapp.com/api/auth/login", payload)
     .then(res => {
       localStorage.setItem("token", res.data.token);
       const decodedToken = decodeToken(res.data.token);

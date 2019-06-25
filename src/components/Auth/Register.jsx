@@ -2,6 +2,8 @@ import React from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+
+import { Button, Input } from "../../styles/Styles";
 import { registerUser } from "../../actions/auth";
 
 function Register(props) {
@@ -43,7 +45,7 @@ function Register(props) {
         onSubmit={handleRegister}
       >
         <p className="h4 mb-4">Regiser</p>
-        <input
+        <Input
           type="text"
           ref={username}
           required
@@ -51,7 +53,7 @@ function Register(props) {
           placeholder="Username"
         />
 
-        <input
+        <Input
           type="email"
           ref={email}
           required
@@ -59,7 +61,7 @@ function Register(props) {
           placeholder="Email"
         />
 
-        <input
+        <Input
           type="password"
           ref={password}
           required
@@ -69,26 +71,28 @@ function Register(props) {
 
         <div className="d-flex justify-content-around" />
 
-        <button className="btn btn-info btn-block my-4" type="submit">
+        <Button className="btn btn-block my-4" type="submit">
           Register
-        </button>
+        </Button>
 
         <p>
           Already a member?
-          <Link to="/login">Login</Link>
+          <Link to="/login" className="purple-text">
+            Login
+          </Link>
         </p>
 
         <p>or sign in with:</p>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-facebook-f" />
         </a>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-twitter" />
         </a>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-linkedin-in" />
         </a>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-github" />
         </a>
       </form>

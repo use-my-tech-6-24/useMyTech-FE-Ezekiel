@@ -13,7 +13,6 @@ import { decodeToken } from "./utils/utils";
 import { setCurrentUser, signOut } from "./actions/auth";
 
 import "react-toastify/dist/ReactToastify.min.css";
-import "./App.css";
 
 if (localStorage.token) {
   const { token } = localStorage;
@@ -38,8 +37,9 @@ function App() {
     <Provider store={store}>
       <Router>
         {/* <Switch> */}
+        <Navbar />
+
         <div className="container-fluid">
-          <Navbar />
           <Route exact path="/login" component={Login} />
           <Route exact path="/register" component={Register} />
           <PrivateRoute exact path="/" component={TechItemsList} />

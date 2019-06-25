@@ -30,19 +30,19 @@ function Navbar(props) {
         >
           <ul className="navbar-nav mr-auto">
             <li className="nav-item active">
-              <a className="nav-link purple-text" href="#2">
+              <a className="nav-link purple-text text-center" href="#2">
                 Home
                 <span className="sr-only">(current)</span>
               </a>
             </li>
             <li className="nav-item">
-              <a className="nav-link purple-text" href="#2">
+              <a className="nav-link purple-text text-center" href="#2">
                 Features
               </a>
             </li>
           </ul>
-          <ul className="navbar-nav ml-auto nav-flex-icons">
-            <li className="nav-item avatar dropdown">
+          <ul className="navbar-nav ml-auto nav-flex-icons justify-content-center">
+            <li className="nav-item avatar dropdown text-center">
               <a
                 className="nav-link dropdown-toggle"
                 id="navbarDropdownMenuLink-4"
@@ -67,7 +67,7 @@ function Navbar(props) {
                 </a>
                 <a
                   className="dropdown-item"
-                  href="#4"
+                  // href="#4"
                   onClick={() => {
                     props.signOut();
                   }}

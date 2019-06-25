@@ -2,7 +2,9 @@ import React from "react";
 import { connect } from "react-redux";
 import { toast } from "react-toastify";
 import { Link } from "react-router-dom";
+
 import { loginUser } from "../../actions/auth";
+import { Button, Input } from "../../styles/Styles";
 
 function Login(props) {
   const username = React.createRef();
@@ -36,7 +38,7 @@ function Login(props) {
         onSubmit={handleLogin}
       >
         <p className="h4 mb-4">Sign in</p>
-        <input
+        <Input
           type="text"
           ref={username}
           required
@@ -44,7 +46,7 @@ function Login(props) {
           placeholder="Username"
         />
 
-        <input
+        <Input
           type="password"
           ref={password}
           required
@@ -52,29 +54,30 @@ function Login(props) {
           placeholder="Password"
         />
 
-        <div className="d-flex justify-content-around">
-        </div>
+        <div className="d-flex justify-content-around" />
 
-        <button className="btn btn-info btn-block my-4" type="submit">
+        <Button className="btn  btn-block my-4" type="submit">
           Sign in
-        </button>
+        </Button>
 
         <p>
           Not a member?
-          <Link to="/register">Register</Link>
+          <Link to="/register" className="purple-text">
+            Register
+          </Link>
         </p>
 
         <p>or sign in with:</p>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-facebook-f" />
         </a>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-twitter" />
         </a>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-linkedin-in" />
         </a>
-        <a href="##" className="light-blue-text mx-2">
+        <a href="##" className="purple-text mx-2">
           <i className="fab fa-github" />
         </a>
       </form>
